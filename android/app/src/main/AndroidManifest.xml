@@ -3,6 +3,10 @@
     <application
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon"
+<<<<<<< HEAD
+=======
+
+>>>>>>> 708b712 (finishapp)
         android:label="weatherapp">
         <activity
             android:name=".MainActivity"
@@ -10,6 +14,10 @@
             android:exported="true"
             android:hardwareAccelerated="true"
             android:launchMode="singleTop"
+<<<<<<< HEAD
+=======
+            android:enableOnBackInvokedCallback="true"
+>>>>>>> 708b712 (finishapp)
             android:taskAffinity=""
             android:theme="@style/LaunchTheme"
             android:windowSoftInputMode="adjustResize">
