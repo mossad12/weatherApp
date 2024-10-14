@@ -17,10 +17,11 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
   Widget build(BuildContext context) {
     return IntroductionScreen(
       globalBackgroundColor: AppColors.primaryColor,
-      bodyPadding: const EdgeInsets.only(top: 120),
+      bodyPadding: const EdgeInsets.only(top: 120.0),
       dotsDecorator: DotsDecorator(
+        spacing: const EdgeInsets.only(bottom: 30.0, left: 5.0, right: 5.0),
         size: const Size.square(10.0),
-        activeSize: const Size(15.0, 10.0),
+        activeSize: const Size(20.0, 8.0),
         color: AppColors.greyColor,
         activeColor: AppColors.textColor,
         activeShape: RoundedRectangleBorder(
@@ -39,7 +40,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Welcome to WeatherApp",
           body: "Get real-time weather updates at your fingertips.",
           image: Center(
-              child: Lottie.asset('assets/images/img1.json',
+              child: Lottie.asset('assets/images/clear.json',
                   height: 500, width: 500)),
         ),
         PageViewModel(
@@ -53,7 +54,7 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           title: "Search by Location",
           body: "Use the search bar to find weather updates for any city.",
           image: Center(
-              child: Lottie.asset('assets/images/img4.json',
+              child: Lottie.asset('assets/images/heavyrain.json',
                   height: 500, width: 500)),
         ),
         PageViewModel(
@@ -68,35 +69,44 @@ class _OnBoardingPageState extends State<OnBoardingPage> {
           body:
               "Allow location access to get the weather for your current location.",
           image: Center(
-              child: Lottie.asset('assets/images/img3.json',
+              child: Lottie.asset('assets/images/rain.json',
                   height: 500, width: 500)),
         ),
       ],
       onDone: () {
         // When done button is press
-        Get.to(const HomePage(),
+        Get.to(HomePage(),
             transition: Transition.rightToLeftWithFade,
             duration: const Duration(seconds: 1));
       },
       onSkip: () {
         // You can also skip
-        Get.to(const HomePage(),
+        Get.to(HomePage(),
             transition: Transition.fadeIn,
             duration: const Duration(seconds: 1));
       },
       showSkipButton: true,
       autoScrollDuration: 3000,
-      skip: const Text("Skip",
-          style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColors.textColor,
-              fontSize: 20)),
-      next: const Icon(Icons.arrow_forward, color: AppColors.textColor),
-      done: const Text("Done",
-          style: TextStyle(
-              fontWeight: FontWeight.w600,
-              color: AppColors.textColor,
-              fontSize: 20)),
+      skip: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: const Text("Skip",
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColor,
+                fontSize: 20)),
+      ),
+      next: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: const Icon(Icons.arrow_forward, color: AppColors.textColor),
+      ),
+      done: Padding(
+        padding: const EdgeInsets.only(bottom: 30),
+        child: const Text("Done",
+            style: TextStyle(
+                fontWeight: FontWeight.w600,
+                color: AppColors.textColor,
+                fontSize: 20)),
+      ),
     );
   }
 }
